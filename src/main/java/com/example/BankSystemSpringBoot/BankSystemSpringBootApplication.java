@@ -24,6 +24,8 @@ public class BankSystemSpringBootApplication {
 			System.out.println("1 - Create a bank");
 			System.out.println("2 - Create an account");
 			System.out.println("3 - Perform transaction");
+			System.out.println("4 - Withdraw amount");
+			System.out.println("5 - Deposit amount");
 			System.out.println("0 - Exit");
 			System.out.print("Enter the option number: ");
 			int choice = scanner.nextInt();
@@ -46,6 +48,12 @@ public class BankSystemSpringBootApplication {
 				case 3:
 					performTransaction(scanner, bank);
 					break;
+				case 4:
+					performWithdraw(scanner, bank);
+					break;
+				case 5:
+					performDeposit(scanner, bank);
+					break;
 				case 0:
 					System.out.println("Exiting program.");
 					return;
@@ -54,8 +62,97 @@ public class BankSystemSpringBootApplication {
 			}
 		}
 	}
+	public static void performWithdraw(Scanner scanner, Bank bank) {
+		try {
+			if (bank == null || bank.getListOfAccounts().isEmpty()) {
+				System.out.println("No bank or accounts created yet.");
+				return;
+			}
 
-					public static void createAccount(Scanner scanner, Bank bank, List<Bank> banks) {
+			System.out.println("---------------------------------------------------");
+			System.out.println("Enter your account ID:");
+			int accountId = scanner.nextInt();
+			scanner.nextLine(); // Consume newline
+
+			Account account = null;
+			for (Account acc : bank.getListOfAccounts()) {
+				if (acc.getAccountId() == accountId) {
+					account = acc;
+					break;
+				}
+			}
+
+			if (account == null) {
+				System.out.println("Account not found.");
+				return;
+			}
+
+			System.out.println("Enter the amount you want to withdraw:");
+			double amount = scanner.nextDouble();
+			scanner.nextLine(); // Consume newline
+
+			if (amount <= 0) {
+				System.out.println("Invalid amount.");
+				return;
+			}
+
+			if (!account.canWithdraw(amount)) {
+				System.out.println("Insufficient balance to perform this withdrawal!");
+				return;
+			}
+
+			account.withdraw(amount);
+			System.out.println("Withdrawal success! New balance: " + account.getBalance());
+			System.out.println("---------------------------------------------------");
+		} catch (Exception e) {
+			System.out.println("An error occurred: " + e.getMessage());
+		}
+	}
+
+	public static void performDeposit(Scanner scanner, Bank bank) {
+		try {
+			if (bank == null || bank.getListOfAccounts().isEmpty()) {
+				System.out.println("No bank or accounts created yet.");
+				return;
+			}
+			System.out.println("---------------------------------------------------");
+			System.out.println("Enter your account ID:");
+			int accountId = scanner.nextInt();
+			scanner.nextLine(); // Consume newline
+
+			Account account = null;
+			for (Account acc : bank.getListOfAccounts()) {
+				if (acc.getAccountId() == accountId) {
+					account = acc;
+					break;
+				}
+			}
+
+			if (account == null) {
+				System.out.println("Account not found.");
+				return;
+			}
+
+			System.out.println("Enter the amount you want to deposit:");
+			double amount = scanner.nextDouble();
+			scanner.nextLine(); // Consume newline
+
+			if (amount <= 0) {
+				System.out.println("Invalid amount.");
+				return;
+			}
+
+			account.deposit(amount);
+			System.out.println("Deposit success! New balance: " + account.getBalance());
+			System.out.println("---------------------------------------------------");
+
+
+		} catch (Exception e) {
+			System.out.println("An error occurred: " + e.getMessage());
+		}
+	}
+
+	public static void createAccount(Scanner scanner, Bank bank, List<Bank> banks) {
 					try {
 						if (bank == null) {
 							System.out.println("No bank created yet.");
