@@ -1,11 +1,10 @@
-package com.example.BankSystemSpringBoot;
+package com.example.BankSystemSpringBoot.model;
 
 
 import com.example.BankSystemSpringBoot.interfaces.AccountInterface;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Account implements AccountInterface {
 
@@ -66,7 +65,6 @@ public class Account implements AccountInterface {
     }
 
 
-    // Method to add transaction
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
 

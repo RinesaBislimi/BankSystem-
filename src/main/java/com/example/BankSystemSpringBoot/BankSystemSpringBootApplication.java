@@ -1,5 +1,9 @@
 package com.example.BankSystemSpringBoot;
 
+import com.example.BankSystemSpringBoot.model.Account;
+import com.example.BankSystemSpringBoot.model.Bank;
+import com.example.BankSystemSpringBoot.model.Transaction;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.ArrayList;
@@ -11,6 +15,7 @@ public class BankSystemSpringBootApplication {
 
 
 	public static void main(String[] args) {
+		SpringApplication.run(BankSystemSpringBootApplication.class, args);
 		System.out.println();
 		System.out.println();
 		System.out.println("---------------WELCOME TO BANK SYSTEM------------------- ");
