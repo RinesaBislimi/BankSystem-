@@ -18,7 +18,7 @@ To run this application, you need to have the following software installed on yo
 ### Installation
 1. Clone the repository to your local machine:
     ```bash
-   git clone https://github.com/example/BankSystemSpringBoot.git](https://github.com/RinesaBislimi/BankSystem-.git
+   git clone https://github.com/RinesaBislimi/BankSystem-.git
    ```
  
 2. Navigate to the project directory:
