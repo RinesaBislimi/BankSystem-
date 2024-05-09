@@ -1,6 +1,8 @@
 package com.example.BankSystemSpringBoot;
 
-public class Transaction {
+import com.example.BankSystemSpringBoot.interfaces.TransactionInterface;
+
+public class Transaction implements TransactionInterface {
 
     private double amount;
     private int originatingAccountId;
@@ -58,7 +60,7 @@ public class Transaction {
         this.transactionReason = transactionReason;
     }
 
-
+    @Override
     public double calculateFee(double amount, double flatFee, double percentFee, int feeType) {
         switch (feeType) {
             case 1:
@@ -73,7 +75,10 @@ public class Transaction {
         }
     }
 
-
+    @Override
+    public String getTransactionType() {
+        return "";
+    }
 
     public static boolean canPerformTransaction(double balance, double amount) {
         return balance >= amount;

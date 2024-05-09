@@ -1,5 +1,4 @@
 package com.example.BankSystemSpringBoot;
-
 import java.util.List;
 
 public class Bank {
@@ -79,5 +78,5 @@ public class Bank {
         return bank;
     }
 
-}
 
+}

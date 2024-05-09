@@ -1,22 +1,24 @@
 package com.example.BankSystemSpringBoot;
 
 
+import com.example.BankSystemSpringBoot.interfaces.AccountInterface;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Account  {
+public class Account implements AccountInterface {
 
     public int accountId;
     public String name;
     public double balance;
-
+    private List<Transaction> transactions;
 
     public Account(int accountId, String name, double balance) {
         this.accountId = accountId;
         this.name = name;
         this.balance = balance;
-
+        this.transactions = new ArrayList<>();
     }
 
     public String printAccountDetails(String name, double balance) {
@@ -64,5 +66,12 @@ public class Account  {
     }
 
 
+    // Method to add transaction
+    public void addTransaction(Transaction transaction) {
+        transactions.add(transaction);
 
+    }
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
 }
