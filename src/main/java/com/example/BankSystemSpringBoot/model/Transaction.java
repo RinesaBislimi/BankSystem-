@@ -1,4 +1,4 @@
-package com.example.BankSystemSpringBoot;
+package com.example.BankSystemSpringBoot.model;
 
 import com.example.BankSystemSpringBoot.interfaces.TransactionInterface;
 

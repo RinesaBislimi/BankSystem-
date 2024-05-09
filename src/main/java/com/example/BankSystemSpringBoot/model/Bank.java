@@ -1,4 +1,5 @@
-package com.example.BankSystemSpringBoot;
+package com.example.BankSystemSpringBoot.model;
+
 import java.util.List;
 
 public class Bank {
@@ -71,7 +72,7 @@ public class Bank {
         this.transactionPercentFeeValue = transactionPercentFeeValue;
     }
 
-    static Bank createBank(String bankName, List<Account> listOfAccounts) {
+    public static Bank createBank(String bankName, List<Account> listOfAccounts) {
         // Provide default values or ask the user for input
         Bank bank = new Bank(bankName, listOfAccounts, 0, 0, 5.0, 2.0);
         System.out.println("Bank created: " + bankName);
