@@ -1,12 +1,12 @@
 # Bank System Spring Boot Console Application
 
 This is a simple console application developed in Java using Spring Boot for managing a bank system. It allows users to:
--create banks,
--accounts,
--perform transactions,
--withdrawals, 
--deposits,
--view account transactions and more.
+- create banks
+- accounts,
+- perform transactions,
+- withdrawals,
+- deposits,
+- view account transactions and more.
 
 ## Getting Started
 To run this application, you need to have the following software installed on your machine:
